@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Świąteczna Strona</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #c00;
+            padding: 1em;
+            color: #fff;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        section {
+            padding: 2em;
+        }
+
+        footer {
+            background-color: #c00;
+            padding: 1em;
+            color: #fff;
+        }
+
+        #countdown {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+
+        #carols {
+            margin-top: 20px;
+        }
+
+        #carols a {
+            display: block;
+            margin-bottom: 10px;
+            color: #c00;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        #links {
+            margin-top: 20px;
+        }
+
+        #links a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px;
+            color: #008080; /* Kolor turkusowy dla hiperłączy */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Wesołych Świąt!</h1>
+    </header>
+    
+    <section>
+        <p>Życzymy Ci radosnych świąt pełnych miłości, spokoju i radości!</p>
+        <img src="2XMFyGJLf7Gk3juCKXVzuTsjYrs-mobile.jpg" alt="Świąteczne obrazki" style="max-width: 100%; height: auto;">
+        
+        <div id="countdown"></div>
+
+        <div id="carols">
+            <a href="https://pl.wikipedia.org/wiki/Cicha_noc" target="_blank">Cicha Noc</a>
+            <a href="https://pl.wikipedia.org/wiki/Jingle_Bells" target="_blank">Dzwoneczki</a>
+            <a href="https://pl.wikipedia.org/wiki/B%C3%B3g_si%C4%99_rodzi" target="_blank">Bóg się rodzi</a>
+            <a href="https://pl.wikipedia.org/wiki/Lulaj%C5%BCe_Jezuniu" target="_blank">Lulajże Jezuniu</a>
+            <a href="https://pl.wikipedia.org/wiki/W%C5%9Br%C3%B3d_nocnej_ciszy" target="_blank">Wśród nocnej ciszy</a>
+        </div>
+
+        <div id="links">
+            <a https://www.youtube.com/watch?v=ToA_06PTr6w&ab_channel=MyMusic" target="_blank">Link 1</a>
+            <a https://www.youtube.com/watch?v=y-AF7vQh2-k&ab_channel=Ma%C5%82aArmiaJanosikaOfficial" target="_blank">Link 2</a>
+            <a href="https://example.com/link3" target="_blank">Link 3</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Świąteczna Strona</p>
+    </footer>
+
+    <script>
+        // Ustaw datę Świąt
+        var christmasDate = new Date("December 25, 2024").getTime();
+
+        // Aktualizuj odliczanie co sekundę
+        var countdownInterval = setInterval(function() {
+            var currentDate = new Date().getTime();
+            var distance = christmasDate - currentDate;
+
+            // Oblicz pozostałe dni, godziny, minuty i sekundy
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Wyświetl odliczanie na stronie
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            // Zatrzymaj odliczanie, gdy Święta nadejdą
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("countdown").innerHTML = "Wesołych Świąt!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
+
